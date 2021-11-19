@@ -15,7 +15,7 @@ namespace BuildInformation
 /____/\_,_/_/_/\_,_/___/_//_/_/ \___/_/ /_/_/_/\_,_/\__/_/\___/_//_/
 ";
             //Main start
-            string Title = "BuildInformation Creator V1.0-" + BuildInformation.Build.BuildIncrement.ToString() + " (" + BuildInformation.Build.BuildDate + ")";
+            string Title = "BuildInformation Creator V1.0-" + Build.BuildIncrement.ToString() + " Rev. " + Build.RevisionControlSystem + "." + Build.Revision + " (" + BuildInformation.Build.BuildDate + ")";
             Console.Clear();
             Console.Title = Title;
             Console.WriteLine(Figlet);
@@ -49,6 +49,13 @@ namespace BuildInformation
             DefaultTemplate.Add("		public static string BuildDate { get; } = \"" + Convert.ToString(DateTime.Now) + "\";");
             DefaultTemplate.Add("		public static string Revision { get; } = \"\";");
             DefaultTemplate.Add("		public static string RevisionControlSystem { get; } = \"\";");
+            DefaultTemplate.Add("#if RELEASE");
+            DefaultTemplate.Add("		public static string BuildType { get; } = \"Release\";");
+            DefaultTemplate.Add("#elif TRACE");
+            DefaultTemplate.Add("		public static string BuildType { get; } = \"Trace\";");
+            DefaultTemplate.Add("#else");
+            DefaultTemplate.Add("		public static string BuildType { get; } = \"Debug\";");
+            DefaultTemplate.Add("#endif");
             DefaultTemplate.Add("	}");
             DefaultTemplate.Add("}");
 
