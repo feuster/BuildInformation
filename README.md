@@ -4,4 +4,5 @@
 Use the bootstrap BuildInformation.exe for e.g. as pre-build event
 
 > start /WAIT "BuildInformation" "$(ProjectDir)Bootstrap\BuildInformation.exe" "--file=$(ProjectDir)BuildInformation.cs"
+> 
 > exit 0
