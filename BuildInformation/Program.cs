@@ -128,7 +128,8 @@ namespace BuildInformation
                     {
                         Console.WriteLine(Environment.NewLine + "-------------------- GIT --------------------" + Environment.NewLine);
                         REVINFO.StartInfo.FileName = "git.exe";
-                        REVINFO.StartInfo.Arguments = "rev-list --count --first-parent HEAD";
+                        //REVINFO.StartInfo.Arguments = "rev-list --count --first-parent HEAD";
+                        REVINFO.StartInfo.Arguments = "rev-parse --short HEAD";
                         REVINFO.StartInfo.UseShellExecute = false;
                         REVINFO.StartInfo.RedirectStandardOutput = true;
                         REVINFO.Start();
