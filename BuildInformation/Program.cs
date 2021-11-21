@@ -51,10 +51,10 @@ namespace BuildInformation
             DefaultTemplate.Add("		public static string RevisionControlSystem { get; } = \"\";");
             DefaultTemplate.Add("#if RELEASE");
             DefaultTemplate.Add("		public static string BuildType { get; } = \"Release\";");
-            DefaultTemplate.Add("#elif TRACE");
-            DefaultTemplate.Add("		public static string BuildType { get; } = \"Trace\";");
-            DefaultTemplate.Add("#else");
+            DefaultTemplate.Add("#elif DEBUG");
             DefaultTemplate.Add("		public static string BuildType { get; } = \"Debug\";");
+            DefaultTemplate.Add("#else");
+            DefaultTemplate.Add("		public static string BuildType { get; } = \"\";");
             DefaultTemplate.Add("#endif");
             DefaultTemplate.Add("	}");
             DefaultTemplate.Add("}");
